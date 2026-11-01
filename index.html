@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="es"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="only light">
+<meta name="supported-color-schemes" content="light">
+<meta name="darkreader-lock">
+<meta name="theme-color" content="#16080b">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%A9%B8%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <title>Court Gore PDH</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bungee&family=Barlow+Condensed:wght@500;700&display=swap">
 <style>
-:root{color-scheme:light;--tile:#cfd9d3;--grout:#a9b6ae;--ink:#16080b;--blood:#d1001c;--dark:#5e000c;--teal:#1f6f6b;--paper:#f4f7f5;--fg:#16080b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+:root{color-scheme:only light;--tile:#cfd9d3;--grout:#a9b6ae;--ink:#16080b;--blood:#d1001c;--dark:#5e000c;--teal:#1f6f6b;--paper:#f4f7f5;--fg:#16080b;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none}
 html,body{margin:0;height:100%;overflow:hidden;overscroll-behavior:none;background:var(--tile);color:var(--ink);font:500 18px 'Barlow Condensed','Arial Narrow',sans-serif}
 #app{position:fixed;inset:0;touch-action:none;color:var(--fg);background:radial-gradient(ellipse at 50% 45%,transparent 45%,#0006 100%),linear-gradient(var(--grout) 2px,transparent 2px) 0 0/84px 84px,linear-gradient(90deg,var(--grout) 2px,transparent 2px) 0 0/84px 84px,var(--tile)}
@@ -78,6 +87,44 @@ h1 i{position:absolute;top:88%;width:10px;border-radius:0 0 10px 10px;background
 .cl{display:flex;flex-direction:column;align-items:center;background:#16080b14;border-radius:6px;padding:5px 0;font-size:28px;line-height:1.15}
 .cl small{font:700 15px 'Barlow Condensed',sans-serif}
 .un{filter:brightness(0);opacity:.28}
+
+/* ===== TÍTULOS ===== */
+.ti{position:relative;display:inline-block;font:400 15px/1.15 Bungee,Impact,sans-serif;letter-spacing:.3px;padding:6px 13px;border-radius:5px;transform:skew(-6deg);white-space:nowrap;border:2px solid #0008;box-shadow:0 3px 0 #0009;text-align:center}
+.ti::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%) 150% 0/250% 100% no-repeat}
+.t2::before,.t3::before,.t4::before,.t5::before,.t6::before,.t7::before,.t8::before,.t9::before,.t10::before{animation:tsh 2.8s linear infinite}
+@keyframes tsh{to{background-position:-150% 0}}
+.t0{background:#2a0b11;color:#ff6577;border-color:#d1001c}
+.t1{background:linear-gradient(90deg,#d1001c,#a0107a 50%,#1e5bd6);color:#fff;text-shadow:1px 1px 0 #000}
+.t2{background:linear-gradient(180deg,#e8fbff,#8fd0ff);color:#0b2a3a;border-color:#fff;box-shadow:0 0 14px #7fe8ff,0 3px 0 #0009;animation:tfl 3s ease-in-out infinite}
+@keyframes tfl{50%{transform:skew(-6deg) translateY(-3px)}}
+.t3{background:radial-gradient(ellipse at 50% 0,#6a5300,#16080b 75%);color:#fff6b0;border-color:#fff6b0;text-shadow:0 0 8px #fff6b0;box-shadow:0 0 14px #fff6b0aa,0 3px 0 #0009}
+.t4{background:linear-gradient(0deg,#ff2a00,#ff7a00 55%,#ffc400);color:#2a0300;border-color:#7a1200;box-shadow:0 0 14px #ff7a00,0 3px 0 #0009;animation:tfi .9s ease-in-out infinite alternate}
+@keyframes tfi{to{box-shadow:0 0 22px #ffb300,0 3px 0 #0009;filter:brightness(1.15)}}
+.t5{background:repeating-linear-gradient(135deg,#1f3d1c 0 8px,#2c5427 8px 16px);color:#c8ff8a;border-color:#7dff00;text-shadow:1px 1px 0 #000}
+.t6{background:linear-gradient(135deg,#2a0040,#8e0012);color:#ffb3ff;border-color:#e11d74;box-shadow:0 0 16px #9b30ff,0 3px 0 #0009;text-shadow:0 0 8px #e11d74}
+.t7{background:linear-gradient(180deg,#d1001c,#5e000c);color:#fff;border-color:#2a0007;text-shadow:2px 2px 0 #2a0007;margin-bottom:14px}
+.t8{background:linear-gradient(135deg,#00bcd4,#9b30ff);color:#fff;border-color:#fff;box-shadow:0 0 14px #c9a6ff,0 3px 0 #0009;animation:thu 4s linear infinite}
+@keyframes thu{to{filter:hue-rotate(360deg)}}
+.t9{background:linear-gradient(135deg,#16080b,#8e0012 50%,#16080b);color:#fff;border-color:#ff2a3d;box-shadow:0 0 18px #ff2a3d,0 3px 0 #0009;text-shadow:0 0 8px #ff2a3d;animation:tpu 1.6s ease-in-out infinite}
+@keyframes tpu{50%{box-shadow:0 0 28px #ff2a3d,0 3px 0 #0009}}
+.t10{background:radial-gradient(circle at 16% 0,#b3001a 0 7px,transparent 8px),radial-gradient(circle at 61% 0,#b3001a 0 9px,transparent 10px),radial-gradient(circle at 91% 0,#8e0012 0 6px,transparent 7px),linear-gradient(180deg,#fff3b0,#ffc400 40%,#d99b10 70%,#8f5805);color:#4a0008;border-color:#fff3b0;font-size:17px;box-shadow:0 0 20px #ffc400,0 0 6px #fff3b0,0 3px 0 #4a2a02;text-shadow:0 1px 0 #fff3b0;animation:tgo 2s ease-in-out infinite;margin-bottom:18px}
+@keyframes tgo{50%{box-shadow:0 0 32px #ffd84a,0 0 10px #fff3b0,0 3px 0 #4a2a02}}
+.tn{background:#16080b;color:#f4f7f5;border:2px dashed #d1001c;opacity:.9}
+.ti i{position:absolute;top:92%;width:5px;height:0;border-radius:0 0 5px 5px;background:#b3001a;pointer-events:none;animation:tdr 3s infinite ease-in}
+.ti i:nth-of-type(1){left:14%}.ti i:nth-of-type(2){left:46%;animation-delay:1s}.ti i:nth-of-type(3){left:78%;animation-delay:2s}
+@keyframes tdr{0%{height:0;opacity:1}50%{height:14px}85%,100%{height:14px;opacity:0}}
+.ti.lc{animation:none;filter:grayscale(1) brightness(.55);box-shadow:none;opacity:.75}
+.ti.lc::before,.ti.lc i{display:none}
+#ttb{background:none;border:0;padding:4px 6px;margin:0;cursor:pointer;pointer-events:auto;font:inherit}
+.tr{display:flex;justify-content:space-between;align-items:center;gap:10px;border-bottom:2px dashed var(--grout);padding:12px 0 14px}
+.tr .tx{flex:1;min-width:0}
+.tr .ds{display:block;font-size:16px;line-height:1.15;opacity:.75;margin-top:7px}
+.pb{height:6px;background:#16080b26;border-radius:3px;margin-top:6px;overflow:hidden}
+.pb i{display:block;height:100%;background:var(--blood)}
+.tb{font:400 14px Bungee,Impact,sans-serif;background:var(--ink);color:var(--paper);border:0;padding:10px 12px;border-radius:4px;flex:none;min-width:92px;cursor:pointer}
+.tb.on{background:var(--teal)}.tb:disabled{opacity:.4}
+@media(max-height:720px){#menu{gap:8px}}
+@media(prefers-reduced-motion:reduce){.ti,.ti::before,.ti i{animation:none!important}}
 </style></head><body>
 <div id="app">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
@@ -117,8 +164,9 @@ h1 i{position:absolute;top:88%;width:10px;border-radius:0 0 10px 10px;background
 <h1>Court<b>Gore<i style="left:6%"></i><i style="left:38%;animation-delay:1.1s"></i><i style="left:71%;animation-delay:2.2s"></i></b></h1>
 <div class="tag">PDH Edition · solo +18</div>
 <p id="mb0" style="margin:6px 0 0;font-weight:700"></p>
+<button id="ttb" aria-label="Elegir título"></button>
 <button class="btn" id="play">Jugar</button>
-<div class="lk"><button id="shopb">Tienda</button><button id="cemb">Cementerio</button><button data-t="how">Cómo jugar</button><button data-t="terms">Términos</button><button data-t="priv">Privacidad</button><button data-t="cred">Créditos</button><button id="snd">Sonido: sí</button></div>
+<div class="lk"><button id="shopb">Tienda</button><button id="cemb">Cementerio</button><button id="titb">Títulos</button><button data-t="how">Cómo jugar</button><button data-t="terms">Términos</button><button data-t="priv">Privacidad</button><button data-t="cred">Créditos</button><button id="snd">Sonido: sí</button></div>
 <div class="ft">Corta los emojis del fondo para calentar<br>© 2026 Samuel PDH</div>
 </section>
 <section class="scr" id="lvl" hidden><h2 id="lt" style="font-size:30px;transform:rotate(-2deg)"></h2><p class="st" id="lx"></p><div id="lg"></div><button class="btn" id="lgo">A ejecutar</button><button class="btn alt" id="lhome">Menú</button></section>
@@ -133,7 +181,7 @@ h1 i{position:absolute;top:88%;width:10px;border-radius:0 0 10px 10px;background
 <script>
 const $=s=>document.querySelector(s),EF="'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji',sans-serif";
 const ls={g(k){try{return localStorage.getItem(k)}catch(e){return null}},s(k,v){try{localStorage.setItem(k,v)}catch(e){}}};
-const cv=$('#c'),cx=cv.getContext('2d',{desynchronized:true}),st=document.createElement('canvas'),sx=st.getContext('2d'),ln=document.createElement('canvas'),lx=ln.getContext('2d');
+const cv=$('#c'),cx=cv.getContext('2d'),st=document.createElement('canvas'),sx=st.getContext('2d'),ln=document.createElement('canvas'),lx=ln.getContext('2d');
 const E=[...'😀😱🤡👻👽🎃🤖👹💀😈🥶🤪😵😎🤓😴🤯🥵😡🤠🤑🐵🐷🐸🐔🐙🦊🐼🦄🐝🐢🦀🐍🦇🐟🦖🐧🍎🍕🍔🍟🍩🍉🍌🍓🌽🥑🍄🥕🍇🍗⚽🎈🎁👑💎🔮🧸🚀🎸🌵🍀'];
 const G=()=>H*Math.min(1.3,.72+lv*.045),vib=n=>{try{navigator.vibrate&&navigator.vibrate(n)}catch(e){}};
 const CH=[['Despertar','Despiertas en una celda con sangre seca en las manos y un número tatuado: 13. Un altavoz cruje: «Verdugo, tu turno empezó hace tres años». No recuerdas nada. Afuera, los primeros condenados ya esperan en fila.',[['😀',6]],''],
@@ -307,12 +355,23 @@ function begin(l,keep){lv=l;const c=chap(l);goals=c[2].map(q=>[q[0],q[1],0]);ban
 function intro(l,pre){lv=l;const c=chap(l);mode='menu';$('#menu').hidden=$('#over').hidden=$('#hud').hidden=true;$('#lt').textContent='Cap. '+l+': '+c[0];$('#lx').innerHTML=(pre||'')+c[1];$('#lg').innerHTML=c[2].map(q=>ico(q[0])+'×'+q[1]).join(' ')+(c[3]?'<br>'+ico(c[3],1)+' ¡no lo cortes!':'');$('#lvl').hidden=false}
 function start(){score=0;intro(sv)}
 function win(){const b=20+lv*5;gain(40+lv*10);earned+=b;coins+=earned;ls.s('cgp_c',coins);if(lv+1>sv){sv=lv+1;ls.s('cgp_lv',sv)}if(score>best){best=score;ls.s('cgp_best',best)}intro(lv+1,'¡Capítulo superado! +'+earned+' '+CN+'. ')}
-function over(){mode='over';coins+=earned;ls.s('cgp_c',coins);if(score>best){best=score;ls.s('cgp_best',best);nr=1}$('#fs').textContent=score;$('#fb').innerHTML=(nr?'¡Nuevo récord! ':'Récord: '+best+' ')+'· +'+earned+' '+CN+'<br>+'+gx+' XP<span class="rkc">'+rkh()+'</span>';$('#hud').hidden=true;$('#over').hidden=false}
+function over(){mode='over';coins+=earned;ls.s('cgp_c',coins);if(score>best){best=score;ls.s('cgp_best',best);nr=1}$('#fs').textContent=score;$('#fb').innerHTML=(nr?'¡Nuevo récord! ':'Récord: '+best+' ')+'· +'+earned+' '+CN+'<br>+'+gx+' XP<span class="rkc">'+rkh()+'</span>'+(eqI()>=0?'<span style="display:block;margin-top:10px">'+tB(eqI())+'</span>':'');$('#hud').hidden=true;$('#over').hidden=false}
 const sm=s=>[...s].reduce((a,e)=>a+(kl[e]||0),0),tot=()=>Object.values(kl).reduce((a,b)=>a+b,0),U2=[...new Set([...E,'😇'])];
-const TT=[['Primera sangre',1,tot],['Cazador de payasos',50,()=>sm('🤡')],['Cazafantasmas sangriento',50,()=>sm('👻')],['Sin piedad',10,()=>sm('😇')],['Chef del infierno',200,()=>sm('🍎🍕🍔🍟🍩🍉🍌🍓🌽🥑🍄🥕🍇🍗')],['Cazador furtivo',150,()=>sm('🐵🐷🐸🐔🐙🦊🐼🦄🐝🐢🦀🐍🦇🐟🦖🐧')],['Verdugo de demonios',100,()=>sm('👹😈💀')],['Carnicero',300,tot],['Coleccionista de almas',U2.length,()=>U2.filter(e=>kl[e]).length],['Masacre global',1000,tot],['Genocida de emojis',3000,tot]];
-const ul=()=>TT.filter(q=>q[2]()>=q[1]).map(q=>q[0]),curT=()=>ul().pop()||'Sin título';
-function tUp(n){bt={s:n.toUpperCase(),c:'#ffc400',l:1.8,m:1.8};txt(W/2,H*.4,'¡NUEVO TÍTULO!','#fff');ring(W/2,H*.32,'#ffc400',Math.max(W,H)*.6,10);for(let i=0;i<30;i++){const b=R()*6.28,v=200+R()*500;pp({t:'p',x:W/2,y:H*.32,vx:Math.cos(b)*v,vy:Math.sin(b)*v-80,g:300,r:4+R()*6,l:.8+R()*.8,c:i%2?'#ffc400':'#fff',a:1})}vib([40,30,60]);sfxc(5)}
-function cem(){const t=tot(),d=U2.filter(e=>kl[e]).length;let h='<p>Víctimas totales: <b>'+t+'</b> · Descubiertas: <b>'+d+'/'+U2.length+'</b></p><p>Título actual: <b>'+curT()+'</b></p><h3>Títulos</h3>'+TT.map(q=>{const v=q[2](),ok=v>=q[1];return '<div class="shp"><span class="nm">'+(ok?'✔ ':'🔒 ')+q[0]+'<small class="ds">'+Math.min(v,q[1])+'/'+q[1]+'</small></span></div>'}).join('')+'<h3>Álbum de víctimas</h3><div class="cg">'+U2.map(e=>kl[e]?'<div class="cl">'+ico(e)+'<small>'+kl[e]+'</small></div>':'<div class="cl"><span class="un">'+ico(e)+'</span><small>?</small></div>').join('')+'</div>';$('#mt').textContent='Cementerio';$('#mb').innerHTML=h;$('#m').hidden=false;$('#mc').hidden=false}
+const TT=[['Primera sangre',1,tot,'Corta tu primer emoji.'],['Cazador de payasos',50,()=>sm('🤡'),'Corta 50 payasos 🤡.'],['Cazafantasmas sangriento',50,()=>sm('👻'),'Corta 50 fantasmas 👻.'],['Sin piedad',10,()=>sm('😇'),'Corta 10 inocentes '+ico('😇')+'.'],['Chef del infierno',200,()=>sm('🍎🍕🍔🍟🍩🍉🍌🍓🌽🥑🍄🥕🍇🍗'),'Corta 200 comidas 🍕🍔🍉.'],['Cazador furtivo',150,()=>sm('🐵🐷🐸🐔🐙🦊🐼🦄🐝🐢🦀🐍🦇🐟🦖🐧'),'Corta 150 animales 🐷🐸🐙.'],['Verdugo de demonios',100,()=>sm('👹😈💀'),'Corta 100 demonios 👹😈💀.'],['Carnicero',300,tot,'Corta 300 emojis en total.'],['Coleccionista de almas',U2.length,()=>U2.filter(e=>kl[e]).length,'Descubre todos los emojis del álbum.'],['Masacre global',1000,tot,'Corta 1000 emojis en total.'],['Genocida de emojis',3000,tot,'Corta 3000 emojis en total. El título definitivo.']];
+const TC=[['#2a0b11','#2a0b11','#ff6577','#d1001c'],['#d1001c','#1e5bd6','#ffffff','#0008'],['#e8fbff','#8fd0ff','#0b2a3a','#ffffff'],['#6a5300','#16080b','#fff6b0','#fff6b0'],['#ffc400','#ff2a00','#2a0300','#7a1200'],['#1f3d1c','#2c5427','#c8ff8a','#7dff00'],['#2a0040','#8e0012','#ffb3ff','#e11d74'],['#d1001c','#5e000c','#ffffff','#2a0007'],['#00bcd4','#9b30ff','#ffffff','#ffffff'],['#16080b','#8e0012','#ffffff','#ff2a3d'],['#fff3b0','#b87a00','#4a0008','#fff3b0']];
+const ul=()=>TT.filter(q=>q[2]()>=q[1]).map(q=>q[0]);
+/* título puesto: null = el último desbloqueado, 'n' = ninguno, número = el elegido */
+function eqI(){const u=[];TT.forEach((q,i)=>{if(q[2]()>=q[1])u.push(i)});const v=ls.g('cgp_tq');if(v==='n')return -1;if(v!==null&&u.includes(+v))return +v;return u.length?u[u.length-1]:-1}
+const curT=()=>{const i=eqI();return i<0?'':TT[i][0]};
+const tB=(i,lock)=>'<span class="ti t'+i+(lock?' lc':'')+'">'+TT[i][0]+(i==7||i==10?'<i></i><i></i><i></i>':'')+'</span>';
+function tchip(){const i=eqI(),b=$('#ttb');if(b)b.innerHTML=i<0?'<span class="ti tn">＋ Título</span>':tB(i)}
+function eq(i){ls.s('cgp_tq',eqI()==i?'n':''+i);tit(1);tchip()}
+function tit(keep){const e=eqI(),n=ul().length,ys=keep?$('#m .card').scrollTop:0;
+let h='<p>Desbloqueados: <b>'+n+'/'+TT.length+'</b> · Puesto: <b>'+(e>=0?TT[e][0]:'ninguno')+'</b></p><p>Elige cuál lucir en el menú y en tu foto. Pulsa <b>Quitar</b> para dejarlo sin título.</p>';
+h+=TT.map((q,i)=>{const v=q[2](),ok=v>=q[1],on=ok&&e==i;return '<div class="tr"><div class="tx">'+tB(i,!ok)+'<small class="ds">'+q[3]+'</small>'+(ok?'':'<div class="pb"><i style="width:'+Math.min(100,v/q[1]*100)+'%"></i></div><small class="ds">'+Math.min(v,q[1])+'/'+q[1]+'</small>')+'</div><button class="tb'+(on?' on':'')+'" data-q="'+i+'"'+(ok?'':' disabled')+'>'+(ok?(on?'Quitar':'Equipar'):'🔒')+'</button></div>'}).join('');
+$('#mt').textContent='Títulos';$('#mb').innerHTML=h;$('#m').hidden=false;$('#mc').hidden=false;$('#m .card').scrollTop=ys}
+function tUp(n){bt={s:n.toUpperCase(),c:'#ffc400',l:1.8,m:1.8};txt(W/2,H*.4,'¡NUEVO TÍTULO!','#fff');ring(W/2,H*.32,'#ffc400',Math.max(W,H)*.6,10);for(let i=0;i<30;i++){const b=R()*6.28,v=200+R()*500;pp({t:'p',x:W/2,y:H*.32,vx:Math.cos(b)*v,vy:Math.sin(b)*v-80,g:300,r:4+R()*6,l:.8+R()*.8,c:i%2?'#ffc400':'#fff',a:1})}if(n==TT[10][0]){splat(W/2,H*.32,0,1);blood(W/2,H*.32,0,80);lens(W/2,H*.32,4)}vib([40,30,60]);sfxc(5)}
+function cem(){const t=tot(),d=U2.filter(e=>kl[e]).length;let h='<p>Víctimas totales: <b>'+t+'</b> · Descubiertas: <b>'+d+'/'+U2.length+'</b></p><p>Título puesto:</p><p>'+(eqI()>=0?tB(eqI()):'<b>Sin título</b>')+'</p><button class="btn alt" data-q="open">Elegir título</button><h3>Álbum de víctimas</h3><div class="cg">'+U2.map(e=>kl[e]?'<div class="cl">'+ico(e)+'<small>'+kl[e]+'</small></div>':'<div class="cl"><span class="un">'+ico(e)+'</span><small>?</small></div>').join('')+'</div>';$('#mt').textContent='Cementerio';$('#mb').innerHTML=h;$('#m').hidden=false;$('#mc').hidden=false}
 function ld(s){return new Promise(r=>{const i=new Image();i.onload=()=>r(i);i.onerror=()=>r(null);i.src=s})}
 const SU=s=>'data:image/svg+xml,'+encodeURIComponent(s);
 async function shot(){const b2=$('#shot');b2.disabled=true;b2.textContent='Revelando…';
@@ -328,17 +387,19 @@ const B=`'Barlow Condensed',sans-serif`,G2='Bungee,Impact,sans-serif',T=(s,X,Y,f
 x.lineJoin='round';x.lineWidth=9*u;x.strokeStyle='#16080b';x.font=(30*u)+'px '+G2;x.textAlign='center';x.strokeText('COURT GORE PDH',w/2,64*u);T('COURT GORE PDH',w/2,64*u,(30*u)+'px '+G2,'#d1001c','center');
 const px=22*u,py=h-262*u,pw=w-44*u,ph=232*u;x.fillStyle='rgba(22,8,11,.86)';x.beginPath();if(x.roundRect)x.roundRect(px,py,pw,ph,16*u);else x.rect(px,py,pw,ph);x.fill();x.lineWidth=3*u;x.strokeStyle='#d1001c';x.stroke();
 const bi=await ld(bdg(t));if(bi)x.drawImage(bi,px+16*u,py+16*u,88*u,88*u);
-T('Nv '+l+' · '+RK[t],px+116*u,py+46*u,'700 '+26*u+'px '+B,'#f4f7f5');T(curT(),px+116*u,py+74*u,'700 '+20*u+'px '+B,'#ffc400');T('Víctimas: '+tot()+' · Cap. '+lv,px+116*u,py+100*u,'700 '+18*u+'px '+B,'#c9d1cc');
+T('Nv '+l+' · '+RK[t],px+116*u,py+46*u,'700 '+26*u+'px '+B,'#f4f7f5');const ti=eqI();if(ti>=0){const q=TC[ti],f=(15*u)+'px '+G2;x.font=f;const tw=x.measureText(TT[ti][0]).width,bx=px+116*u,by=py+56*u,bw=tw+22*u,bh=26*u,g=x.createLinearGradient(bx,by,bx+bw,by+bh);g.addColorStop(0,q[0]);g.addColorStop(1,q[1]);x.fillStyle=g;x.beginPath();if(x.roundRect)x.roundRect(bx,by,bw,bh,5*u);else x.rect(bx,by,bw,bh);x.fill();x.lineWidth=2*u;x.strokeStyle=q[3];x.stroke();T(TT[ti][0],bx+11*u,by+19*u,f,q[2]);
+if(ti==10){x.fillStyle='#b3001a';for(const k of[.16,.61,.91]){x.beginPath();x.arc(bx+bw*k,by,6*u,0,Math.PI);x.fill()}}
+if(ti==7||ti==10){x.fillStyle='#b3001a';for(const k of[.14,.46,.78]){const dh=(7+k*8)*u;x.fillRect(bx+bw*k,by+bh,4*u,dh);x.beginPath();x.arc(bx+bw*k+2*u,by+bh+dh,3*u,0,7);x.fill()}}}
+T('Víctimas: '+tot()+' · Cap. '+lv,px+116*u,py+116*u,'700 '+18*u+'px '+B,'#c9d1cc');
 T('PUNTOS',px+24*u,py+140*u,'700 '+16*u+'px '+B,'#c9d1cc');T(''+score,px+24*u,py+194*u,Math.min(46,170/(String(score).length*.78))*u+'px '+G2,'#d1001c');
 T('RÉCORD',px+pw-24*u,py+140*u,'700 '+16*u+'px '+B,'#c9d1cc','right');T(''+best,px+pw-24*u,py+184*u,Math.min(32,110/(String(best).length*.78))*u+'px '+G2,'#f4f7f5','right');
-const bl=await new Promise(r=>c.toBlob(r,'image/png')),url=c.toDataURL('image/png');let dl=null;try{dl=await claude.use('downloads')}catch(e){}
-$('#mt').textContent='Foto de la masacre';$('#mb').innerHTML='<img alt="" src="'+url+'" style="display:block;max-width:100%;max-height:58vh;margin:0 auto;border:3px solid #16080b;border-radius:6px">'+(dl&&bl?'<button class="btn" id="shs">Guardar foto</button>':'<p style="text-align:center;font-weight:700">Mantén pulsada la imagen para guardarla.</p>');$('#m').hidden=false;$('#mc').hidden=false;
-if(dl&&bl)$('#shs').onclick=async e=>{try{await dl.save({filename:'court-gore-masacre.png',data:bl});e.target.textContent='¡Guardada!'}catch(er){e.target.textContent=er&&er.code=='declined'?'Guardar foto':'No se pudo guardar'}}}catch(e){}
+const bl=await new Promise(r=>c.toBlob(r,'image/png')),url=c.toDataURL('image/png');$('#mt').textContent='Foto de la masacre';$('#mb').innerHTML='<img alt="" src="'+url+'" style="display:block;max-width:100%;max-height:58vh;margin:0 auto;border:3px solid #16080b;border-radius:6px">'+(bl?'<button class="btn" id="shs">Guardar foto</button>':'')+'<p style="text-align:center;font-weight:700">También puedes mantener pulsada la imagen para guardarla.</p>';$('#m').hidden=false;$('#mc').hidden=false;
+if(bl)$('#shs').onclick=e=>{try{const a=document.createElement('a'),u2=URL.createObjectURL(bl);a.href=u2;a.download='court-gore-masacre.png';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u2),4000);e.target.textContent='¡Guardada!'}catch(er){e.target.textContent='No se pudo guardar'}}}catch(e){}
 b2.disabled=false;b2.textContent='Foto de la masacre'}
 function pause(on){if(on&&mode!='play')return;pz=on;$('#pause').hidden=!on;down=false}
 function bank(){coins+=earned;earned=0;ls.s('cgp_c',coins);if(score>best){best=score;ls.s('cgp_best',best)}}
 function toMenu(){pause(false);bank();items=[];halves=[];pt=[];rg=[];bo=[];bt=null;slow=0;frz=0;streak=0;$('#hud').hidden=true;home()}
-function home(){mode='menu';$('#over').hidden=$('#lvl').hidden=true;$('#menu').hidden=false;$('#play').textContent=sv>1?'Continuar: cap. '+sv:'Jugar';$('#mb0').innerHTML='Récord: '+best+' · '+CN+' '+coins+'<span class="rkc">'+rkh()+'</span>'}
+function home(){mode='menu';$('#over').hidden=$('#lvl').hidden=true;$('#menu').hidden=false;$('#play').textContent=sv>1?'Continuar: cap. '+sv:'Jugar';$('#mb0').innerHTML='Récord: '+best+' · '+CN+' '+coins+'<span class="rkc">'+rkh()+'</span>';tchip()}
 function cf(a,f){let j=0;for(let i=0;i<a.length;i++){const v=a[i];if(f(v))a[j++]=v}a.length=j}
 function upd(dt){if(hs>0){hs-=dt;dt*=.15}const sd=dt*(slow>0?.4:1),g=G();slow=Math.max(0,slow-dt);
 if(mode!='dying'){tm-=sd;if(tm<=0){const p=mode=='play',n=p?1+(R()*(1+Math.min(3,lv/2|0))|0):1;for(let i=0;i<n;i++)launch();tm=p?Math.max(.65,1.7-lv*.07):1.3}}
@@ -394,11 +455,11 @@ cred:['Créditos','<h3>Creador</h3><p>Samuel PDH: concepto, dirección, diseño 
 ok:['Antes de jugar','<p>Court Gore PDH contiene gore explícito y estilizado, destellos rojos y sonidos fuertes. Es solo para mayores de 18 años.</p><label class="ck"><input type="checkbox" id="ck"><span>Tengo 18 años o más y acepto los <a data-t="terms">Términos</a> y la <a data-t="priv">Política de privacidad</a>.</span></label><button class="btn" id="go" disabled>Entrar</button>']};
 function openM(k){const[t,h]=LEG[k];$('#mt').textContent=t;$('#mb').innerHTML=h;$('#m').hidden=false;$('#mc').hidden=k=='ok';
 if(k=='ok'){$('#ck').onchange=()=>$('#go').disabled=!$('#ck').checked;$('#go').onclick=()=>{ls.s('cgp_ok','1');$('#m').hidden=true;start()}}}
-$('#mb').addEventListener('click',e=>{const el=e.target.closest('[data-t],[data-b]');if(!el)return;const t=el.dataset.t,b=el.dataset.b;if(t)openM(t);if(b)buy(b)});
+$('#mb').addEventListener('click',e=>{const el=e.target.closest('[data-t],[data-b],[data-q]');if(!el||el.disabled)return;const t=el.dataset.t,b=el.dataset.b,q=el.dataset.q;if(t)openM(t);if(b)buy(b);if(q!==undefined)q=='open'?tit():eq(+q)});
 $('#mc').onclick=()=>$('#m').hidden=true;
 document.querySelectorAll('.lk [data-t]').forEach(b=>b.onclick=()=>openM(b.dataset.t));
 $('#play').onclick=()=>ls.g('cgp_ok')=='1'?start():openM('ok');
-$('#again').onclick=()=>begin(lv);$('#home').onclick=home;$('#lhome').onclick=home;$('#pz').onclick=()=>pause(true);$('#pres').onclick=()=>pause(false);$('#prst').onclick=()=>{pause(false);bank();begin(lv)};$('#pmen').onclick=toMenu;document.addEventListener('visibilitychange',()=>{if(document.hidden)pause(true)});$('#lgo').onclick=()=>begin(lv,1);$('#shopb').onclick=()=>shop();$('#cemb').onclick=cem;$('#shot').onclick=shot;
+$('#again').onclick=()=>begin(lv);$('#home').onclick=home;$('#lhome').onclick=home;$('#pz').onclick=()=>pause(true);$('#pres').onclick=()=>pause(false);$('#prst').onclick=()=>{pause(false);bank();begin(lv)};$('#pmen').onclick=toMenu;document.addEventListener('visibilitychange',()=>{if(document.hidden)pause(true)});$('#lgo').onclick=()=>begin(lv,1);$('#shopb').onclick=()=>shop();$('#cemb').onclick=cem;$('#titb').onclick=()=>tit();$('#ttb').onclick=()=>tit();$('#shot').onclick=shot;
 $('#snd').onclick=e=>{mute=!mute;e.target.textContent='Sonido: '+(mute?'no':'sí')};
 applyBg();home();
 </script></body></html>
