@@ -594,4 +594,36 @@ ab.onclick=()=>{if(ab.classList.contains('on')){ab.classList.remove('on');clearT
 const n=Date.now();tp=n-tt<1200?tp+1:1;tt=n;if(tp>=3){tp=0;ab.classList.add('on');clearTimeout(tv);tv=setTimeout(()=>ab.classList.remove('on'),6000)}};
 })();
 </script>
+<script>
+/* MÚSICA de terror suave */
+(()=>{
+const VOL=.10;
+let mc=null,mg=null,on=0;
+function init(){
+if(mc)return;
+try{mc=new(window.AudioContext||window.webkitAudioContext)()}catch(e){return}
+mg=mc.createGain();mg.gain.value=0;mg.connect(mc.destination);
+const lp=mc.createBiquadFilter();lp.type='lowpass';lp.frequency.value=380;lp.Q.value=.7;lp.connect(mg);
+[[55,'triangle',.06],[55.5,'sawtooth',.025],[82.4,'triangle',.05],[58.3,'sine',.06]].forEach(([f,t,v])=>{
+const o=mc.createOscillator(),g=mc.createGain(),l=mc.createOscillator(),lg=mc.createGain();
+o.type=t;o.frequency.value=f;g.gain.value=v;
+l.frequency.value=.05+Math.random()*.08;lg.gain.value=v*.6;l.connect(lg);lg.connect(g.gain);
+o.connect(g);g.connect(lp);o.start();l.start()});
+const fl=mc.createOscillator(),fg=mc.createGain();fl.frequency.value=.07;fg.gain.value=120;fl.connect(fg);fg.connect(lp.frequency);fl.start();
+const dl=mc.createDelay(1.5),fb=mc.createGain();dl.delayTime.value=.55;fb.gain.value=.45;dl.connect(fb);fb.connect(dl);dl.connect(mg);
+window._mdl=dl;
+note()}
+function note(){
+setTimeout(note,5000+Math.random()*9000);
+if(!on||!mc||mc.state!=='running')return;
+const f=[466.16,349.23,277.18,311.13,233.08][Math.random()*5|0],t=mc.currentTime,o=mc.createOscillator(),g=mc.createGain();
+o.type='sine';o.frequency.value=f;
+g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.03,t+2);g.gain.exponentialRampToValueAtTime(.0005,t+7);
+o.connect(g);g.connect(mg);g.connect(window._mdl);o.start(t);o.stop(t+7.5)}
+function go(){init();if(mc&&mc.state!=='running')mc.resume().catch(()=>{});on=1}
+addEventListener('pointerup',go);addEventListener('click',go);addEventListener('keydown',go);
+setInterval(()=>{if(!mc)return;let m=false;try{m=mute}catch(e){}
+const v=(on&&!m&&!document.hidden)?VOL:0;mg.gain.setTargetAtTime(v,mc.currentTime,.6)},250);
+})();
+  </script>  
 </body></html>
