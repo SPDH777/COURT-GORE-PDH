@@ -570,9 +570,9 @@ else _kfx(x,y,a,big)};
 /* 7. Texto de ayuda */
 LEG.how[1]=LEG.how[1].replace('Si dejas caer un emoji de la lista pierdes una vida. Tienes 3.','Si se te escapa un emoji de la lista no pierdes nada: vuelve a salir. Solo pierdes vidas con bombas e inocentes. Tienes 3.');
 
-/* 8. Panel de administrador: punto rojo pequeño arriba a la izquierda */
+/* 8. Panel de administrador: 3 toques en la esquina superior izquierda muestran el punto rojo */
 const sty=document.createElement('style');
-sty.textContent='input{-webkit-user-select:text;user-select:text}#adm{position:absolute;left:6px;top:calc(env(safe-area-inset-top,0px) + 6px);width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#d1001c;opacity:.6;pointer-events:auto;cursor:pointer;z-index:6}#adm::before{content:"";position:absolute;inset:-14px}#apw{width:100%;font:700 22px "Barlow Condensed",sans-serif;padding:10px 12px;border:3px solid #16080b;border-radius:4px;background:#fff;color:#16080b}';
+sty.textContent='input{-webkit-user-select:text;user-select:text}#adm{position:absolute;left:0;top:env(safe-area-inset-top,0px);width:44px;height:44px;padding:0;border:0;background:transparent;pointer-events:auto;cursor:pointer;z-index:6}#adm::after{content:"";position:absolute;left:6px;top:6px;width:7px;height:7px;border-radius:50%;background:#d1001c;opacity:0}#adm.on::after{opacity:.7}#apw{width:100%;font:700 22px "Barlow Condensed",sans-serif;padding:10px 12px;border:3px solid #16080b;border-radius:4px;background:#fff;color:#16080b}';
 document.head.appendChild(sty);
 const ab=document.createElement('button');ab.id='adm';ab.setAttribute('aria-label','Admin');$('#menu').appendChild(ab);
 const H0=1084049041,AH=s=>{let a=5381;for(const c of s)a=((a*33)^c.charCodeAt(0))>>>0;return a};
@@ -589,7 +589,9 @@ $('#mb').innerHTML='<input id="apw" type="password" autocomplete="off" placehold
 $('#m').hidden=false;$('#mc').hidden=false;
 const go=()=>{if(AH($('#apw').value)===H0){unlock();$('#mt').textContent='Modo administrador';$('#mb').innerHTML='<p>Todo desbloqueado: nivel 100, todos los títulos, la Tienda completa, el álbum y los legendarios.</p>'}else{$('#amsg').textContent='Contraseña incorrecta.';$('#apw').value=''}};
 $('#ago').onclick=go;$('#apw').onkeydown=e=>{if(e.key==='Enter')go()}}
-ab.onclick=ask;
+let tp=0,tt=0,tv=0;
+ab.onclick=()=>{if(ab.classList.contains('on')){ab.classList.remove('on');clearTimeout(tv);ask();return}
+const n=Date.now();tp=n-tt<1200?tp+1:1;tt=n;if(tp>=3){tp=0;ab.classList.add('on');clearTimeout(tv);tv=setTimeout(()=>ab.classList.remove('on'),6000)}};
 })();
 </script>
 </body></html>
