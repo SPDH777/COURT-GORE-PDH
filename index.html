@@ -531,4 +531,65 @@ $('#play').onclick=()=>ls.g('cgp_ok')=='1'?start():openM('ok');
 $('#again').onclick=()=>begin(lv);$('#home').onclick=home;$('#lhome').onclick=home;$('#pz').onclick=()=>pause(true);$('#pres').onclick=()=>pause(false);$('#prst').onclick=()=>{pause(false);bank();begin(lv)};$('#pmen').onclick=toMenu;document.addEventListener('visibilitychange',()=>{if(document.hidden)pause(true)});$('#lgo').onclick=()=>begin(lv,1);$('#shopb').onclick=()=>shop();$('#cemb').onclick=cem;$('#titb').onclick=()=>tit();$('#rulb').onclick=()=>rul();$('#prb').onclick=()=>pres();$('#ttb').onclick=()=>tit();$('#shot').onclick=shot;
 $('#snd').onclick=e=>{mute=!mute;e.target.textContent='Sonido: '+(mute?'no':'sí')};
 applyBg();home();
-</script></body></html>
+</script>
+<script>
+(()=>{
+/* 1. Dejar caer un emoji ya no quita vida: solo se pierde y vuelve a salir. Siguen quitando vida las bombas y los inocentes */
+const _lose=lose;
+lose=function(it,b){if(!b)return;_lose(it,b)};
+
+/* 2. Nivel 100 mucho más difícil: el XP se divide entre 6 (con la mejora "Entrenamiento" sube un 50%) */
+const _gain=gain;
+gain=function(n){n*=(own.ex?1.5:1)/6;let k=Math.floor(n);if(R()<n-k)k++;if(k>0)_gain(k)};
+
+/* 3. Mejora "Bombas escasas" */
+const _launch=launch;
+launch=function(){const n=items.length;_launch();const it=items[items.length-1];if(own.ms&&items.length>n&&it.k=='b'&&R()<.45){it.k='e';it.e=E[R()*E.length|0]}};
+
+/* 4. Mejora "Segundo corazón extra" */
+const _begin=begin;
+begin=function(l,k){_begin(l,k);if(own.h2){lives++;hud()}};
+
+/* 5. Tienda: precios mucho más altos y objetos nuevos */
+const P={b1:1500,b2:3000,b3:4500,b4:7000,b5:15000,hm:2000,hl:3500,sl:2500,cd:6000,sk:4000,f1:2500,f2:4000,f3:5500,f4:8000,f5:12000,x1:3000,x2:5000,x3:6500,x4:8000,x5:10000};
+SH.forEach(s=>{if(P[s[0]])s[2]=P[s[0]]});
+SH.push(
+['b6','Hoja neón',5500,'#ff4fd8'],['b7','Hoja escarcha',6500,'#bff4ff'],['b9','Hoja esmeralda',8000,'#2ee66b'],['b8','Hoja abismo',9000,'#9b30ff'],
+['ms','Bombas escasas: salen menos bombas',8000],['h2','Segundo corazón extra: +1 vida más',9000],['ex','Entrenamiento: +50% de XP',30000],
+['x6','Veneno',7000,0,'Salpicaduras tóxicas verdes.'],['x7','Supernova',14000,0,'Una explosión dorada en cada corte.'],['x8','Oscuridad',18000,0,'Humo negro y relámpagos púrpura.']);
+SH.forEach(s=>s[3]&&(BC[s[0]]=s[3]));
+
+/* 6. Efectos de eliminación nuevos */
+const _kfx=kfx;
+kfx=function(x,y,a,big){const n=big?2:1;
+if(fxk=='x6'){for(let i=0;i<22*n;i++){const b=R()*6.28,v=150+R()*450;pp({t:'p',x,y,vx:Math.cos(b)*v,vy:Math.sin(b)*v-80,g:200,r:5+R()*9,l:.6+R()*.7,c:['#7dff00','#3ec800','#c8ff8a'][R()*3|0],a:1})}ring(x,y,'#7dff00',S*1.1,8);fc='125,255,0';flash=.4}
+else if(fxk=='x7'){for(let i=0;i<28*n;i++){const b=R()*6.28,v=400+R()*700;pp({t:'l',x,y,vx:Math.cos(b)*v,vy:Math.sin(b)*v,r:2+R()*3,l:.3+R()*.3,c:'#ffd84a',a:1})}ring(x,y,'#ffd84a',S*1.4,10);ring(x,y,'#fff3b0',S*.8,6);fc='255,216,74';flash=.55}
+else if(fxk=='x8'){for(let i=0;i<18*n;i++){const b=R()*6.28,v=100+R()*350;pp({t:'p',x,y,vx:Math.cos(b)*v,vy:Math.sin(b)*v-60,g:-40,r:12+R()*16,l:.8+R()*.7,c:'#2a0040'})}for(let i=0;i<2+n;i++)bolt(x,y,R()*6.28,S*(.8+R()*.8),'#c9a6ff');ring(x,y,'#9b30ff',S*1.2,8);fc='90,0,140';flash=.5}
+else _kfx(x,y,a,big)};
+
+/* 7. Texto de ayuda */
+LEG.how[1]=LEG.how[1].replace('Si dejas caer un emoji de la lista pierdes una vida. Tienes 3.','Si se te escapa un emoji de la lista no pierdes nada: vuelve a salir. Solo pierdes vidas con bombas e inocentes. Tienes 3.');
+
+/* 8. Panel de administrador: punto rojo pequeño a la izquierda del menú */
+const sty=document.createElement('style');
+sty.textContent='input{-webkit-user-select:text;user-select:text}#adm{position:absolute;left:5px;top:50%;width:14px;height:14px;padding:0;border:0;border-radius:50%;background:#d1001c;opacity:.6;pointer-events:auto;cursor:pointer;z-index:6}#adm::before{content:"";position:absolute;inset:-14px}#apw{width:100%;font:700 22px "Barlow Condensed",sans-serif;padding:10px 12px;border:3px solid #16080b;border-radius:4px;background:#fff;color:#16080b}';
+document.head.appendChild(sty);
+const ab=document.createElement('button');ab.id='adm';ab.setAttribute('aria-label','Admin');$('#menu').appendChild(ab);
+const H0=1084049041,AH=s=>{let a=5381;for(const c of s)a=((a*33)^c.charCodeAt(0))>>>0;return a};
+function unlock(){
+SH.forEach(s=>{own[s[0]]=1});
+xp=Math.max(xp,XF(100));ls.s('cgp_xp',xp);
+U2.forEach(e=>{kl[e]=Math.max(kl[e]||0,3500)});ls.s('cgp_k',JSON.stringify(kl));
+LG.forEach((q,i)=>{lgk[i]=Math.max(lgk[i]||0,1)});ls.s('cgp_lg',JSON.stringify(lgk));
+ls.s('cgp_o',JSON.stringify(own));
+const r=$('#rk');if(r)r._k=-1;home()}
+function ask(){
+$('#mt').textContent='Administrador';
+$('#mb').innerHTML='<input id="apw" type="password" autocomplete="off" placeholder="Contraseña"><p id="amsg" style="min-height:24px;font-weight:700;color:#d1001c"></p><button class="btn" id="ago">Entrar</button>';
+$('#m').hidden=false;$('#mc').hidden=false;
+const go=()=>{if(AH($('#apw').value)===H0){unlock();$('#mt').textContent='Modo administrador';$('#mb').innerHTML='<p>Todo desbloqueado: nivel 100, todos los títulos, la Tienda completa, el álbum y los legendarios.</p>'}else{$('#amsg').textContent='Contraseña incorrecta.';$('#apw').value=''}};
+$('#ago').onclick=go;$('#apw').onkeydown=e=>{if(e.key==='Enter')go()}}
+ab.onclick=ask;
+})();
+</script>
+</body></html>
